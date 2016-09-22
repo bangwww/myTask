@@ -1,0 +1,24 @@
+{
+  "name": "my_template",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "bangwww <bang.1234@mail.ru>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/libs/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-grid": "^3.3.6-beta.1",
+    "angular": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "jquery": "^3.1.0"
+  }
+}
