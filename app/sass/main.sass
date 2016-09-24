@@ -1,5 +1,10 @@
 @import "bourbon/bourbon"
 
+$main_color: #313237
+
+.hidden
+	display: none
+
 body
 	input,
 	textarea,
@@ -26,12 +31,26 @@ header
 	color: #fff
 	position: relative
 	min-height: 620px
+	.btn_dwn
+		position: absolute
+		background-color: rgba(#fff, .05)
+		bottom: 0
+		font-size: 20px
+		left: 0
+		width: 100%
+		height: 50px
+		border: none
+		z-index: 1
+		&:hover
+			background-color: rgba(#fff, .3)
+
 .bg_box
-	background-color: rgba(#313237,.8)
+	background-color: rgba($main_color,.8)
 	position: absolute
 	width: 100%
 	min-height: 620px
 	display: table
+
 	.header_title
 		display: table-row
 		.inner_title
@@ -40,6 +59,8 @@ header
 			text-align: center
 h2
 	text-transform: uppercase
+h3
+ margin: 0
 .s_main
 	padding: 100px 0
 	background-color: #FAFAFA
@@ -48,3 +69,30 @@ h2
 
 .item
 	text-align: center
+	padding: 10px !important
+	.descr_item
+		border: #BABABA 1px solid
+		padding: 20px
+		a
+			text-decoration: none
+			padding: 5px
+			color: #fff
+			background-color: $main_color
+
+.user_wrapper
+	.user_inf_wrap
+		border: $main_color 1px solid
+		color: $main_color
+		padding: 10px
+	.dark
+		background-color: $main_color
+		color: #fff
+	h3
+		text-transform: uppercase
+		font-size: 17px
+		span
+			font-size: 22px
+			margin-right: 5px
+	p 
+		span
+			font-weight: bold

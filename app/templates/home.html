@@ -1,0 +1,16 @@
+<div class="section_header">
+	<h2>List of users</h2>
+</div>
+<div class="list_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 item" ng-repeat="user in users">
+				<div class="descr_item">
+					<h3>{{user.name}}</h3>
+					<p>{{user.address.city}}</p>
+					<a class="btn_view" href="#/users/{{user.id}}">View &raquo;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

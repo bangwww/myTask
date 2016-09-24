@@ -32,7 +32,8 @@ gulp.task('scripts', function() {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/jquery/dist/jquery.min.js',
         'app/libs/angular/angular.min.js',
-        'app/libs/angular-resource/angular-resource.min.js'
+        'app/libs/angular-resource/angular-resource.min.js',
+        'app/libs/angular-route/angular-route.min.js'
 
         ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
