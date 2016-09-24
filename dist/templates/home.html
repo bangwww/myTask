@@ -1,0 +1,22 @@
+<div class="section_header">
+	<h2>List of users</h2>
+	<form id="search_form">
+		<label>Filter: </label>
+		<input type="text"  placeholder="enter the user name..." ng-model="search">
+	</form>
+</div>
+
+
+<div class="list_wrapper">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 item" ng-repeat="user in users | filter: {name: search}">
+				<div class="descr_item">
+					<h3>{{user.name}}</h3>
+					<p>{{user.address.city}}</p>
+					<a class="btn_view btn" href="#/users/{{user.id}}">View &raquo;</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
