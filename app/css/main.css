@@ -3,11 +3,11 @@
 
 body {
   overflow-x: hidden;
-  font-family: "RobotoSlab-Regular", sans-serif;
+  font-family: "RobotoRegular", sans-serif;
   font-weight: normal;
   font-size: 14px;
   min-width: 320px;
-  color: #555;
+  color: #313237;
   position: relative;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -48,14 +48,12 @@ header {
   background-size: cover;
   text-align: center;
   color: #fff;
-  position: relative;
-  min-height: 620px; }
+  position: relative; }
 
 .bg_box {
   background-color: rgba(49, 50, 55, 0.8);
   position: absolute;
   width: 100%;
-  min-height: 620px;
   display: table; }
   .bg_box .header_title {
     display: table-row; }
@@ -64,7 +62,8 @@ header {
       vertical-align: middle;
       text-align: center; }
 
-h2 {
+h1, h2, h3 {
+  font-family: "RobotoBold";
   text-transform: uppercase; }
 
 h3 {
@@ -78,17 +77,35 @@ h3 {
   .s_main .section_header {
     text-align: center; }
 
+#search_form label {
+  text-transform: uppercase;
+  font-family: "RobotoBold"; }
+
+#search_form input {
+  margin-left: 5px;
+  text-transform: uppercase;
+  width: 250px;
+  text-indent: 8px;
+  border: 1px #bababa solid; }
+  #search_form input:focus {
+    border: #313237 1px solid; }
+
 .item {
   text-align: center;
   padding: 10px !important; }
   .item .descr_item {
     border: #BABABA 1px solid;
     padding: 20px; }
-    .item .descr_item a {
-      text-decoration: none;
-      padding: 5px;
-      color: #fff;
-      background-color: #313237; }
+  .item .btn_view {
+    text-decoration: none; }
+
+.btn {
+  padding: 5px;
+  color: #fff;
+  background-color: #313237; }
+  .btn:hover {
+    color: #fff;
+    background-color: #76777C; }
 
 .user_wrapper .user_inf_wrap {
   border: #313237 1px solid;
@@ -108,3 +125,9 @@ h3 {
 
 .user_wrapper p span {
   font-weight: bold; }
+
+.link_wrap {
+  text-align: center;
+  margin-top: 35px; }
+  .link_wrap .btn_home {
+    text-decoration: none; }
