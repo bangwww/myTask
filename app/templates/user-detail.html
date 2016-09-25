@@ -5,7 +5,7 @@
 	<div class="container">
 		<h2>{{user.name}} ({{user.username}})</h2>
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4">
 			<div class="user_inf_wrap">
 			<h3><span><i class="fa fa-mobile" aria-hidden="true"></i></span>contact information:</h3>
 			<p><span>Email</span>: {{user.email}}</p>
@@ -13,7 +13,7 @@
 			<p><span>Web-site</span>: {{user.website}}</p>
 			</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4">
 				<div class="user_inf_wrap dark">
 			<h3><span><i class="fa fa-map-marker" aria-hidden="true"></i></span>Address:</h3>
 			<p><span>Street</span>: {{user.address.street}}</p>
@@ -23,7 +23,7 @@
 			<p><span>GEO</span>: lat: {{user.address.geo.lat}}, lng: {{user.address.geo.lng}}</p>
 			</div>
 			</div>
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-4">
 				<div class="user_inf_wrap">
 			<h3><span><i class="fa fa-building-o" aria-hidden="true"></i></span>company:</h3>
 			<p><span>Name</span>: {{user.company.name}}</p>
@@ -32,6 +32,6 @@
 			</div>
 			</div>
 		</div>
+		<div class="lin_wr"><a href="#/" class="btn btn_home"><< Home</a></div>
 	</div>
 </div>
-<div class="link_wrap"><a href="#/" class="btn btn_home">Home</a></div>

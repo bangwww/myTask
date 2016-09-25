@@ -44,7 +44,7 @@ gulp.task('scripts', function() {
 gulp.task('css-libs', ['sass'], function() {
     return gulp.src([
         'app/libs/bootstrap-grid/dist/bootstrap-grid.min.css',
-        'app/libs/font-awesome/css/font-awesome.min.css'
+        'app/libs/font-awesome/css/font-awesome.css'
     ]) // Выбираем файл для минификации
         .pipe(concat('libs.min.css'))
         .pipe(cssnano()) // Сжимаем

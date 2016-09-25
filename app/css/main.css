@@ -1,3 +1,47 @@
+/*==========  Desktop First  ==========*/
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1200px) {
+  /**/ }
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 992px) {
+  /**/ }
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px) {
+  .list_wrapper .descr_item {
+    max-width: 400px;
+    margin: auto; } }
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px) {
+  /**/ }
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px) {
+  /**/ }
+
+/*==========  Mobile First  ==========*/
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) {
+  /**/ }
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px) {
+  /**/ }
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  /**/ }
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  /**/ }
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px) {
+  /**/ }
+
 .hidden {
   display: none; }
 
@@ -102,10 +146,11 @@ h3 {
 .btn {
   padding: 5px;
   color: #fff;
-  background-color: #313237; }
-  .btn:hover {
-    color: #fff;
-    background-color: #76777C; }
+  background-color: #313237;
+  opacity: 1; }
+  .btn:hover, .btn:focus {
+    opacity: .8;
+    color: #fff; }
 
 .user_wrapper .user_inf_wrap {
   border: #313237 1px solid;
@@ -126,8 +171,7 @@ h3 {
 .user_wrapper p span {
   font-weight: bold; }
 
-.link_wrap {
-  text-align: center;
+.user_wrapper .lin_wr {
   margin-top: 35px; }
-  .link_wrap .btn_home {
+  .user_wrapper .lin_wr .btn_home {
     text-decoration: none; }

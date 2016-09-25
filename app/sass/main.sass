@@ -1,4 +1,5 @@
 @import "bourbon/bourbon"
+@import "media"
 
 $main_color: #313237
 
@@ -102,9 +103,10 @@ h3
 	padding: 5px
 	color: #fff
 	background-color: $main_color
-	&:hover
+	opacity: 1
+	&:hover,&:focus
+		opacity: .8
 		color: #fff
-		background-color: #76777C
 
 .user_wrapper
 	.user_inf_wrap
@@ -123,9 +125,8 @@ h3
 	p 
 		span
 			font-weight: bold
-.link_wrap
-	text-align: center
-	margin-top: 35px
-	.btn_home
-		text-decoration: none
+	.lin_wr
+		margin-top: 35px
+		.btn_home
+			text-decoration: none
 
