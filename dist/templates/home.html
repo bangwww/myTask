@@ -11,10 +11,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-sm-6 item" ng-repeat="user in users | filter: {name: search}">
-				<div class="descr_item">
+				<div class="descr_item"  ng-controller="UserDetailCtrl">
 					<h3>{{user.name}}</h3>
 					<p>{{user.address.city}}</p>
-					<a class="btn_view btn" href="#/users/{{user.id}}">View &raquo;</a>
+					<div class="btn_view btn" href="#" ng-click="clickToOpen()">View &raquo;</div>
 				</div>
 			</div>
 		</div>

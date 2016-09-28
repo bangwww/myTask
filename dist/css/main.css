@@ -74,7 +74,7 @@ body {
   z-index: 1; }
 
 .btn_dwn {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
   bottom: 0; }
   .btn_dwn:hover {
     background-color: rgba(255, 255, 255, 0.3); }
@@ -118,8 +118,9 @@ h3 {
   display: none;
   padding: 100px 0;
   background-color: #FAFAFA; }
-  .s_main .section_header {
-    text-align: center; }
+
+.section_header {
+  text-align: center; }
 
 #search_form label {
   text-transform: uppercase;
@@ -140,38 +141,36 @@ h3 {
   .item .descr_item {
     border: #BABABA 1px solid;
     padding: 20px; }
-  .item .btn_view {
-    text-decoration: none; }
 
 .btn {
-  padding: 5px;
+  width: 70px;
+  line-height: 30px;
+  margin: auto;
   color: #fff;
   background-color: #313237;
-  opacity: 1; }
+  opacity: 1;
+  cursor: pointer; }
   .btn:hover, .btn:focus {
     opacity: .8;
     color: #fff; }
 
-.user_wrapper .user_inf_wrap {
-  border: #313237 1px solid;
-  color: #313237;
-  padding: 10px; }
+.user_wrapper {
+  text-align: center; }
+  .user_wrapper .user_inf_wrap {
+    text-align: left;
+    border: #313237 1px solid;
+    color: #313237; }
+  .user_wrapper .dark {
+    background-color: #313237;
+    color: #fff; }
+  .user_wrapper h3 {
+    text-transform: uppercase;
+    font-size: 18px; }
+    .user_wrapper h3 span {
+      font-size: 22px;
+      margin-right: 5px; }
+  .user_wrapper p span {
+    font-weight: bold; }
 
-.user_wrapper .dark {
-  background-color: #313237;
-  color: #fff; }
-
-.user_wrapper h3 {
-  text-transform: uppercase;
-  font-size: 17px; }
-  .user_wrapper h3 span {
-    font-size: 22px;
-    margin-right: 5px; }
-
-.user_wrapper p span {
-  font-weight: bold; }
-
-.user_wrapper .lin_wr {
-  margin-top: 35px; }
-  .user_wrapper .lin_wr .btn_home {
-    text-decoration: none; }
+.ngdialog.ngdialog-theme-default {
+  padding-top: 100px; }

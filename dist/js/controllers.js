@@ -1,28 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute','ngResource']);
-
 myApp
-	.config([
-		'$routeProvider',
-		function($routeProvider) {
-			$routeProvider
-				.when('/',{
-					templateUrl: 'templates/home.html',
-					controller: 'UserListCtrl'
-				})
-				.when('/users/:userId', {
-					templateUrl: 'templates/user-detail.html',
-					controller: 'UserDetailCtrl'
-				})
-				.otherwise({
-					redirectTo: '/'
-				});
-		}
-		])
-	.factory('User', [
-		'$resource', function($resource){
-			return $resource('http://jsonplaceholder.typicode.com/users', {});
-		}
-		])
 	.controller('UserListCtrl',[
 		'$scope', 'User', function($scope, User) {
 			User.query({}, function(data) {
@@ -31,13 +7,18 @@ myApp
 		}
 		])
 	.controller('UserDetailCtrl', [
-			'$scope', '$routeParams','User', function($scope, $routeParams, User) {
-				$scope.userId = $routeParams.userId;
+			'$scope','User','ngDialog', function($scope, User, ngDialog) {
 
 				User.query({}, function(data) {
 				$scope.users = data;
 			});
 
-			}
-		]);
+			$scope.clickToOpen = function (){
+				ngDialog.open({
+				template: 'templates/user-detail.html',
+				className: 'ngdialog-theme-default',
+				controller: 'UserDetailCtrl'
+			});
+			};
+			}]);
 
