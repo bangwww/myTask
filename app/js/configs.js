@@ -1,4 +1,5 @@
-myApp.config([
+myApp
+	.config([
 		'$routeProvider',
 		function($routeProvider) {
 			$routeProvider

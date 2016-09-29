@@ -1,24 +1,30 @@
+
 myApp
 	.controller('UserListCtrl',[
-		'$scope', 'User', function($scope, User) {
-			User.query({}, function(data) {
-				$scope.users = data;
-			});
-		}
-		])
-	.controller('UserDetailCtrl', [
-			'$scope','User','ngDialog', function($scope, User, ngDialog) {
-
-				User.query({}, function(data) {
+		'$scope','$rootScope', 'User','ngDialog', function($scope, $rootScope, User, ngDialog) {
+			
+			User.query({userId:''}, function(data) {
 				$scope.users = data;
 			});
 
-			$scope.clickToOpen = function (){
+			$scope.clickToOpen = function(usrId){
+				$rootScope.getUserId = usrId;
 				ngDialog.open({
 				template: 'templates/user-detail.html',
 				className: 'ngdialog-theme-default',
 				controller: 'UserDetailCtrl'
 			});
 			};
+		}
+		])
+	.controller('UserDetailCtrl', [
+			'$scope','$rootScope','User', function($scope, $rootScope, User) {
+				
+				$scope.userId = $rootScope.getUserId;
+
+				User.get({userId:$scope.userId}, function(data) {
+				$scope.user = data;
+			})
+
 			}]);
 
