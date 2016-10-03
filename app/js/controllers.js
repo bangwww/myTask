@@ -7,8 +7,14 @@ myApp
 				$scope.users = data;
 			});
 
+			$scope.getUserId = function(usrId) {
+				$rootScope.userId = usrId;
+			}
+
 			$scope.clickToOpen = function(usrId){
-				$rootScope.getUserId = usrId;
+
+				$scope.getUserId(usrId);
+
 				ngDialog.open({
 				template: 'templates/user-detail.html',
 				className: 'ngdialog-theme-default',
@@ -20,9 +26,7 @@ myApp
 	.controller('UserDetailCtrl', [
 			'$scope','$rootScope','User', function($scope, $rootScope, User) {
 				
-				$scope.userId = $rootScope.getUserId;
-
-				User.get({userId:$scope.userId}, function(data) {
+				User.get({userId:$rootScope.userId}, function(data) {
 				$scope.user = data;
 			})
 
