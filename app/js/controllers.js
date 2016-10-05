@@ -9,6 +9,17 @@ myApp
 
 		});
 
+		
+		$scope.clickToShowHeader = function(){
+			$('header, .bg_box').slideToggle(1000);
+			$('.s_main').slideToggle(1000, function() {
+				$(".btn_dwn, .btn_up").slideToggle(1000);
+			});
+		}
+	}])
+.controller('UserDetailCtrl', [
+	'$scope','User', function($scope, User) {
+
 		$scope.elemBody = $("body");
 		
 		$scope.clickToShowPopUp = function(usrId){
@@ -19,16 +30,6 @@ myApp
 			$scope.elemBody.addClass("popup_no_overlay");
 
 		}
-
-		$scope.clickToShowHeader = function(){
-			$('header, .bg_box').slideToggle(1000);
-		$('.s_main').slideToggle(1000, function() {
-			$(".btn_dwn, .btn_up").slideToggle(1000);
-		});
-		}
-	}])
-.controller('UserDetailCtrl', [
-	'$scope','User', function($scope, User) {
 
 		$scope.showPopUp = false;
 
