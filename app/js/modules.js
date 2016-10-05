@@ -1,1 +1,1 @@
-var myApp = angular.module('myApp', ['ngRoute','ngResource','ngDialog']);
+var myApp = angular.module('myApp', ['ngResource']);

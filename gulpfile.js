@@ -32,9 +32,7 @@ gulp.task('scripts', function() {
     return gulp.src([ // Берем все необходимые библиотеки
         'app/libs/jquery/dist/jquery.min.js',
         'app/libs/angular/angular.min.js',
-         'app/libs/ng-dialog/js/ngDialog.min.js',
-        'app/libs/angular-resource/angular-resource.min.js',
-        'app/libs/angular-route/angular-route.min.js'
+        'app/libs/angular-resource/angular-resource.min.js'
 
         ])
         .pipe(concat('libs.min.js')) // Собираем их в кучу в новом файле libs.min.js
@@ -45,9 +43,7 @@ gulp.task('scripts', function() {
 gulp.task('css-libs', ['sass'], function() {
     return gulp.src([
         'app/libs/bootstrap-grid/dist/bootstrap-grid.min.css',
-        'app/libs/font-awesome/css/font-awesome.css',
-        'app/libs/ng-dialog/css/ngDialog.min.css',
-        'app/libs/ng-dialog/css/ngDialog-theme-default.min.css'
+        'app/libs/font-awesome/css/font-awesome.css'
 
     ]) // Выбираем файл для минификации
         .pipe(concat('libs.min.css'))
@@ -55,7 +51,7 @@ gulp.task('css-libs', ['sass'], function() {
         .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
 });
 
-gulp.task('watch', ['browser-sync', 'css-libs', 'scripts'], function() {
+gulp.task('watch', ['browser-sync', 'css-libs'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
     gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
     gulp.watch('app/templates/*.html', browserSync.reload);

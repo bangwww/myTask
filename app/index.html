@@ -13,9 +13,9 @@
 
 
 </head>
-<body>
-	<header>
-		<div class="bg_box">
+<body ng-controller="UserListCtrl">
+	<header resize-detector>
+		<div class="bg_box" resize-detector>
 			<div class="header_title">
 				<div class="inner_title">
 					<h1>Test angular-application</h1>
@@ -25,18 +25,41 @@
 			</div>
 
 		</div>
-		<button class="btn_dwn">⇧</button>
+		<button class="btn_dwn" ng-click="clickToShowHeader()">⇧</button>
 	</header>
 	<section class="s_main">
-		<button class="btn_up">⇩</button>
+		<button class="btn_up" ng-click="clickToShowHeader()">⇩</button>
+		
+		<div class="section_header">
+			<h2>List of users</h2>
+			<form id="search_form">
+				<label>Filter: </label>
+				<input type="text"  placeholder="enter the user name..." ng-model="search">
+			</form>
+		</div>
 
-		<ng-view></ng-view>
+		<div class="list_wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-sm-6 item" ng-repeat="user in users | filter: {name: search}">
+						<div class="descr_item">
+							<h3>{{user.name}}</h3>
+							<p>{{user.address.city}}</p>
+							<div class="btn_view btn"  ng-click="clickToShowPopUp(user.id)">View &raquo;</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<user-pop-up></user-pop-up>
 
 	</section>
-	<script src="js/libs.min.js"></script>
-	<script src="js/common.js"></script>
+	<script src="libs/jquery/dist/jquery.min.js"></script>
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-resource/angular-resource.min.js"></script>
 	<script src="js/modules.js"></script>
-	<script src="js/configs.js"></script>
+	<script src="js/directives.js"></script>
 	<script src="js/factories.js"></script>
 	<script src="js/controllers.js"></script>
 </body>

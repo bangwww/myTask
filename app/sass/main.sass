@@ -108,17 +108,50 @@ h3
 	&:hover,&:focus
 		opacity: .8
 		color: #fff
-
-.user_wrapper
-	text-align: center
-	.user_inf_wrap
+.popup_no_overlay
+	overflow: hidden
+.popup_bg
+	position: fixed
+	left: 0
+	top: 0
+	bottom: 0
+	right: 0
+	background-color: rgba(0,0,0,0.6)
+	overflow: scroll
+	z-index: 999
+	.user_popup_content
+		position: relative
+		margin: 10% auto 0
+		max-width: 1050px
+		padding: 15px
+		border-radius: 5px
+		background: white
+		text-align: center
+		.btn_close
+			position: absolute
+			top: -5px
+			right: -5px
+			background-color: #e8e8e8
+			border-radius: 50%
+			width: 25px
+			height: 25px
+			font-size: 11px
+			padding-bottom: 1.5px
+			border: 1px rgba(0,0,0,0.6) solid
+			
+	.user_inf_item
 		text-align: left
 		border: $main_color 1px solid
 		color: $main_color
 		padding: 10px
-	.dark
-		background-color: $main_color
-		color: #fff
+		margin: 0 -2px
+		width: 340px
+		min-height: 260px
+		display: inline-block
+		vertical-align: top
+		&.dark
+			background-color: $main_color
+			color: #fff
 	h3
 		text-transform: uppercase
 		font-size: 18px
@@ -128,6 +161,3 @@ h3
 	p 
 		span
 			font-weight: bold
-
-.ngdialog.ngdialog-theme-default
-	padding-top: 100px

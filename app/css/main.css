@@ -1,11 +1,23 @@
 /*==========  Desktop First  ==========*/
 /* Large Devices, Wide Screens */
 @media only screen and (max-width: 1200px) {
-  /**/ }
+  body .popup_bg .user_inf_item {
+    max-width: 400px; } }
+
+@media only screen and (max-width: 1062px) {
+  body .popup_bg .user_popup_content {
+    max-width: 940px; }
+  body .popup_bg .user_inf_item {
+    width: 300px; } }
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
-  /**/ }
+  body .popup_bg .user_popup_content {
+    max-width: 450px; }
+  body .popup_bg .user_inf_item {
+    display: block;
+    margin: auto;
+    width: 420px; } }
 
 /* Small Devices, Tablets */
 @media only screen and (max-width: 768px) {
@@ -15,7 +27,10 @@
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width: 480px) {
-  /**/ }
+  body .popup_bg .user_popup_content {
+    max-width: 340px; }
+  body .popup_bg .user_inf_item {
+    max-width: 310px; } }
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
@@ -154,24 +169,57 @@ h3 {
     opacity: .8;
     color: #fff; }
 
-.user_wrapper {
-  text-align: center; }
-  .user_wrapper .user_inf_wrap {
+.popup_no_overlay {
+  overflow: hidden; }
+
+.popup_bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: scroll;
+  z-index: 999; }
+  .popup_bg .user_popup_content {
+    position: relative;
+    margin: 10% auto 0;
+    max-width: 1050px;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+            border-radius: 5px;
+    background: white;
+    text-align: center; }
+    .popup_bg .user_popup_content .btn_close {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background-color: #e8e8e8;
+      -webkit-border-radius: 50%;
+              border-radius: 50%;
+      width: 25px;
+      height: 25px;
+      font-size: 11px;
+      padding-bottom: 1.5px;
+      border: 1px rgba(0, 0, 0, 0.6) solid; }
+  .popup_bg .user_inf_item {
     text-align: left;
     border: #313237 1px solid;
     color: #313237;
-    padding: 10px; }
-  .user_wrapper .dark {
-    background-color: #313237;
-    color: #fff; }
-  .user_wrapper h3 {
+    padding: 10px;
+    margin: 0 -2px;
+    width: 340px;
+    min-height: 260px;
+    display: inline-block;
+    vertical-align: top; }
+    .popup_bg .user_inf_item.dark {
+      background-color: #313237;
+      color: #fff; }
+  .popup_bg h3 {
     text-transform: uppercase;
     font-size: 18px; }
-    .user_wrapper h3 span {
+    .popup_bg h3 span {
       font-size: 22px;
       margin-right: 5px; }
-  .user_wrapper p span {
+  .popup_bg p span {
     font-weight: bold; }
-
-.ngdialog.ngdialog-theme-default {
-  padding-top: 100px; }

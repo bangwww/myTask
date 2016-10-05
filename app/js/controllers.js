@@ -1,34 +1,51 @@
 
 myApp
-	.controller('UserListCtrl',[
-		'$scope','$rootScope', 'User','ngDialog', function($scope, $rootScope, User, ngDialog) {
-			
-			User.query({userId:''}, function(data) {
-				$scope.users = data;
-			});
+.controller('UserListCtrl',[
+	'$scope', 'User', function($scope, User) {
 
-			$scope.getUserId = function(usrId) {
-				$rootScope.userId = usrId;
-			}
+		User.query({userId:''}, function(data) {
 
-			$scope.clickToOpen = function(usrId){
+			$scope.users = data;
 
-				$scope.getUserId(usrId);
+		});
 
-				ngDialog.open({
-				template: 'templates/user-detail.html',
-				className: 'ngdialog-theme-default',
-				controller: 'UserDetailCtrl'
-			});
-			};
+		$scope.elemBody = $("body");
+		
+		$scope.clickToShowPopUp = function(usrId){
+
+			$scope.userId = usrId;
+			$scope.showPopUp = true;
+
+			$scope.elemBody.addClass("popup_no_overlay");
+
 		}
-		])
-	.controller('UserDetailCtrl', [
-			'$scope','$rootScope','User', function($scope, $rootScope, User) {
-				
-				User.get({userId:$rootScope.userId}, function(data) {
-				$scope.user = data;
-			})
 
-			}]);
+		$scope.clickToShowHeader = function(){
+			$('header, .bg_box').slideToggle(1000);
+		$('.s_main').slideToggle(1000, function() {
+			$(".btn_dwn, .btn_up").slideToggle(1000);
+		});
+		}
+	}])
+.controller('UserDetailCtrl', [
+	'$scope','User', function($scope, User) {
+
+		$scope.showPopUp = false;
+
+		$scope.closePopUp = function() {
+
+			$scope.showPopUp = false;
+			$scope.elemBody.removeClass("popup_no_overlay");
+
+		}
+
+	}])
+.controller('ResizeCtrl', [
+	'$scope', function($scope){
+		$scope.heightDetect = function(elem) {
+
+			elem.css("height", $(window).height());
+
+		}
+	}])
 
