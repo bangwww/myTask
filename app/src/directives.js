@@ -1,5 +1,5 @@
 myApp
-.directive('userPopUp', () => {
+.directive('userPopUp', function() {
 	return {
 		restrict: 'E',
 		scope: false,

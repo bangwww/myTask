@@ -1,7 +1,7 @@
 
 myApp
 .controller('UserListCtrl',[
-	'$scope', 'User', ($scope, User) => {
+	'$scope', 'User', function($scope, User) {
 
 		User.query({userId:''}, (data) => {
 
@@ -10,7 +10,7 @@ myApp
 		});
 
 		
-		$scope.clickToShowHeader = () => {
+		$scope.clickToShowHeader = function() {
 			$('header, .bg_box').slideToggle(1000);
 			$('.s_main').slideToggle(1000, () => {
 				$(".btn_dwn, .btn_up").slideToggle(1000);
@@ -24,7 +24,7 @@ myApp
 
 		$scope.elemBody = $("body");
 		
-		$scope.clickToShowPopUp = usrId => {
+		$scope.clickToShowPopUp = function(usrId) {
 
 			$scope.userId = usrId;
 			$scope.showPopUp = true;
@@ -43,7 +43,7 @@ myApp
 			
 
 
-		$scope.closePopUp = () => {
+		$scope.closePopUp = function() {
 			$scope.showPopUp = false;
 			$scope.elemBody.removeClass("popup_no_overlay");
 			$location.hash("");
