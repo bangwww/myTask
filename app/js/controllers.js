@@ -18,7 +18,7 @@ myApp
 		}
 	}])
 .controller('UserDetailCtrl', [
-	'$scope','User', function($scope, User) {
+	'$scope','$location','User', function($scope, $location, User) {
 
 		$scope.elemBody = $("body");
 		
@@ -26,18 +26,25 @@ myApp
 
 			$scope.userId = usrId;
 			$scope.showPopUp = true;
-
+			$location.hash(usrId);
 			$scope.elemBody.addClass("popup_no_overlay");
 
 		}
 
-		$scope.showPopUp = false;
+		if($location.hash() == "")
+			$scope.showPopUp = false;
+		else {
+			$scope.userId = $location.hash();
+			$scope.showPopUp = true;
+			$scope.elemBody.addClass("popup_no_overlay");
+		} 
+			
+
 
 		$scope.closePopUp = function() {
-
 			$scope.showPopUp = false;
 			$scope.elemBody.removeClass("popup_no_overlay");
-
+			$location.hash("");
 		}
 
 	}])
