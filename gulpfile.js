@@ -10,6 +10,7 @@ var gulp       = require('gulp'), // Подключаем Gulp
     pngquant     = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
     cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
     autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
+    babel = require('gulp-babel');
 
 gulp.task('sass', function(){ // Создаем таск Sass
     return gulp.src('app/sass/**/*.sass') // Берем источник
@@ -51,10 +52,21 @@ gulp.task('css-libs', ['sass'], function() {
         .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
 });
 
-gulp.task('watch', ['browser-sync', 'css-libs'], function() {
+gulp.task('bible-task', function() {
+    return gulp.src([
+            'app/src/*.js'
+        ])
+            .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('app/js'))
+});
+
+gulp.task('watch', ['browser-sync', 'css-libs', 'bible-task'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
     gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
     gulp.watch('app/templates/*.html', browserSync.reload);
+    gulp.watch('app/src/*.js', ['bible-task']);
     gulp.watch('app/js/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 
