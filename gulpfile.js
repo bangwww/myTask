@@ -52,7 +52,7 @@ gulp.task('css-libs', ['sass'], function() {
         .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
 });
 
-gulp.task('bible-task', function() {
+gulp.task('bable-transform', function() {
     return gulp.src([
             'app/src/*.js'
         ])
@@ -62,11 +62,11 @@ gulp.task('bible-task', function() {
         .pipe(gulp.dest('app/js'))
 });
 
-gulp.task('watch', ['browser-sync', 'css-libs', 'bible-task'], function() {
+gulp.task('watch', ['browser-sync', 'css-libs', 'bable-transform'], function() {
     gulp.watch('app/sass/**/*.sass', ['sass']); // Наблюдение за sass файлами в папке sass
     gulp.watch('app/*.html', browserSync.reload); // Наблюдение за HTML файлами в корне проекта
     gulp.watch('app/templates/*.html', browserSync.reload);
-    gulp.watch('app/src/*.js', ['bible-task']);
+    gulp.watch('app/src/*.js', ['bable-transform']);
     gulp.watch('app/js/*.js', browserSync.reload);   // Наблюдение за JS файлами в папке js
 });
 

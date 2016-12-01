@@ -15,25 +15,27 @@ myApp.controller('UserListCtrl', ['$scope', 'User', function ($scope, User) {
 	};
 }]).controller('UserDetailCtrl', ['$scope', '$location', 'User', function ($scope, $location, User) {
 
-	$scope.elemBody = $("body");
+	var elemBody = $("body");
 
 	$scope.clickToShowPopUp = function (usrId) {
 
 		$scope.userId = usrId;
 		$scope.showPopUp = true;
 		$location.hash(usrId);
-		$scope.elemBody.addClass("popup_no_overlay");
+		elemBody.addClass("popup_no_overlay");
 	};
 
-	if ($location.hash() == "") $scope.showPopUp = false;else {
+	if ($location.hash() == "") {
+		$scope.showPopUp = false;
+	} else {
 		$scope.userId = $location.hash();
 		$scope.showPopUp = true;
-		$scope.elemBody.addClass("popup_no_overlay");
+		elemBody.addClass("popup_no_overlay");
 	}
 
 	$scope.closePopUp = function () {
 		$scope.showPopUp = false;
-		$scope.elemBody.removeClass("popup_no_overlay");
+		elemBody.removeClass("popup_no_overlay");
 		$location.hash("");
 	};
 }]).controller('ResizeCtrl', ['$scope', function ($scope) {

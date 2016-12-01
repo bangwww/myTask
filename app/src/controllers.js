@@ -22,37 +22,42 @@ myApp
 
 
 
-		$scope.elemBody = $("body");
+		const elemBody = $("body");
+
 		
 		$scope.clickToShowPopUp = function(usrId) {
 
 			$scope.userId = usrId;
 			$scope.showPopUp = true;
 			$location.hash(usrId);
-			$scope.elemBody.addClass("popup_no_overlay");
+			elemBody.addClass("popup_no_overlay");
 
 		}
 
-		if($location.hash() == "")
+		
+		if($location.hash() == "") {
 			$scope.showPopUp = false;
+		}
 		else {
 			$scope.userId = $location.hash();
 			$scope.showPopUp = true;
-			$scope.elemBody.addClass("popup_no_overlay");
-		} 
+			elemBody.addClass("popup_no_overlay");
+		}
+
+		
 			
 
 
 		$scope.closePopUp = function() {
 			$scope.showPopUp = false;
-			$scope.elemBody.removeClass("popup_no_overlay");
+			elemBody.removeClass("popup_no_overlay");
 			$location.hash("");
 		}
 
 	}])
 .controller('ResizeCtrl', [
 	'$scope', $scope => {
-		$scope.heightDetect = elem => {
+		$scope.heightDetect = function(elem) {
 
 			elem.css("height", $(window).height());
 
