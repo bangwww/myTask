@@ -1,5 +1,5 @@
 myApp
-.directive('userPopUp', function() {
+.directive('userPopUp', function() { //директива для модального окна
 	return {
 		restrict: 'E',
 		scope: false,
@@ -7,7 +7,7 @@ myApp
 		controller: 'UserDetailCtrl'
 	}
 })
-.directive('resizeDetector', () => {
+.directive('resizeDetector', function() {  
 	return {
 		restrict: 'A',
 		scope: true,

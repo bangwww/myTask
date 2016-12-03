@@ -8,6 +8,7 @@ myApp.controller('UserListCtrl', ['$scope', 'User', function ($scope, User) {
 	});
 
 	$scope.clickToShowHeader = function () {
+		//анимация при сокрытии хедера
 		$('header, .bg_box').slideToggle(1000);
 		$('.s_main').slideToggle(1000, function () {
 			$(".btn_dwn, .btn_up").slideToggle(1000);
@@ -18,6 +19,7 @@ myApp.controller('UserListCtrl', ['$scope', 'User', function ($scope, User) {
 	var elemBody = $("body");
 
 	$scope.clickToShowPopUp = function (usrId) {
+		//функция вызова модального окна
 
 		$scope.userId = usrId;
 		$scope.showPopUp = true;
@@ -25,21 +27,26 @@ myApp.controller('UserListCtrl', ['$scope', 'User', function ($scope, User) {
 		elemBody.addClass("popup_no_overlay");
 	};
 
-	if ($location.hash() == "") {
-		$scope.showPopUp = false;
-	} else {
-		$scope.userId = $location.hash();
-		$scope.showPopUp = true;
-		elemBody.addClass("popup_no_overlay");
-	}
-
 	$scope.closePopUp = function () {
+		//зактыть модальное окно
 		$scope.showPopUp = false;
 		elemBody.removeClass("popup_no_overlay");
 		$location.hash("");
 	};
+
+	$(window).bind('load', function () {
+		if ($location.hash() == "") {
+			$scope.showPopUp = false;
+		} else {
+			$scope.clickToShowHeader();
+			$scope.userId = $location.hash();
+			$scope.showPopUp = true;
+			elemBody.addClass("popup_no_overlay");
+		}
+	});
 }]).controller('ResizeCtrl', ['$scope', function ($scope) {
 	$scope.heightDetect = function (elem) {
+		//рейсайзим размеры окна
 
 		elem.css("height", $(window).height());
 	};

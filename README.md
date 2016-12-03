@@ -1,4 +1,4 @@
-# Test application for SmartexLab
+# Test application
 
 ###Timing(very conditionally)
 1. When loaded, gets a list of users from the following url: http://jsonplaceholder.typicode.com/users - 2 hours

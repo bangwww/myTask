@@ -1,4 +1,4 @@
-var gulp       = require('gulp'), // Подключаем Gulp
+var gulp         = require('gulp'), // Подключаем Gulp
     sass         = require('gulp-sass'), //Подключаем Sass пакет,
     browserSync  = require('browser-sync'), // Подключаем Browser Sync
     concat       = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
@@ -10,7 +10,7 @@ var gulp       = require('gulp'), // Подключаем Gulp
     pngquant     = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
     cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
     autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
-    babel = require('gulp-babel');
+    babel        = require('gulp-babel'); //Подключаем библиотеку для конвертации кода в ES5
 
 gulp.task('sass', function(){ // Создаем таск Sass
     return gulp.src('app/sass/**/*.sass') // Берем источник
@@ -56,9 +56,7 @@ gulp.task('bable-transform', function() {
     return gulp.src([
             'app/src/*.js'
         ])
-            .pipe(babel({
-            presets: ['es2015']
-        }))
+        .pipe(babel({ presets: ['es2015']}))
         .pipe(gulp.dest('app/js'))
 });
 
