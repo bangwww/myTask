@@ -8,22 +8,23 @@ class UserPopUp {
 
 		const elemBody = $("body");
 
-		$(window).bind('load',  function() {
-			if($location.hash() == "") {
-				$scope.showPopUp = false;
-			}else {
-				$scope.clickToShowHeader();
-				$scope.userId = $location.hash();
-				$scope.showPopUp = true;
-				elemBody.addClass("popup_no_overlay");
-			}
-		});
+		window.onload = function () {
+			if($location.path().slice(1) == "") {
+			$scope.showPopUp = false;
+		} else {
+			$scope.clickToShowHeader();
+			$scope.userId = $location.path().slice(1);
+			$scope.showPopUp = true;
+			elemBody.addClass("popup_no_overlay");
+		}
+		}
+		
 
 		$scope.clickToShowPopUp = function(usrId) { //функция вызова модального окна
 
 			$scope.userId = usrId;
 			$scope.showPopUp = true;
-			$location.hash(usrId);
+			$location.path(usrId);
 			elemBody.addClass("popup_no_overlay");
 
 		}
@@ -31,7 +32,7 @@ class UserPopUp {
 		$scope.closePopUp = function() { //зактыть модальное окно
 			$scope.showPopUp = false;
 			elemBody.removeClass("popup_no_overlay");
-			$location.hash("");
+			$location.path("");
 		};
 
 		}];
