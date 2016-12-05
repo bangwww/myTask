@@ -8,16 +8,16 @@ class UserPopUp {
 
 		const elemBody = $("body");
 
-		window.onload = function () {
-			if($location.path().slice(1) == "") {
+
+		if($location.path().slice(1) == "") {
 			$scope.showPopUp = false;
 		} else {
 			$scope.clickToShowHeader();
 			$scope.userId = $location.path().slice(1);
 			$scope.showPopUp = true;
 			elemBody.addClass("popup_no_overlay");
-		}
-		}
+		};
+		
 		
 
 		$scope.clickToShowPopUp = function(usrId) { //функция вызова модального окна

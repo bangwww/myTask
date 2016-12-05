@@ -16,15 +16,13 @@ var UserPopUp = function UserPopUp() {
 
 				var elemBody = $("body");
 
-				window.onload = function () {
-						if ($location.path().slice(1) == "") {
-								$scope.showPopUp = false;
-						} else {
-								$scope.clickToShowHeader();
-								$scope.userId = $location.path().slice(1);
-								$scope.showPopUp = true;
-								elemBody.addClass("popup_no_overlay");
-						}
+				if ($location.path().slice(1) == "") {
+						$scope.showPopUp = false;
+				} else {
+						$scope.clickToShowHeader();
+						$scope.userId = $location.path().slice(1);
+						$scope.showPopUp = true;
+						elemBody.addClass("popup_no_overlay");
 				};
 
 				$scope.clickToShowPopUp = function (usrId) {
